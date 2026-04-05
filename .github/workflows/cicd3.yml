@@ -2,6 +2,16 @@ name: CICD
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: this is the env where the workflow run
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+          - staging
+    
 
 jobs:
 
