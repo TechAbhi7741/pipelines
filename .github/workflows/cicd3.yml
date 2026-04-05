@@ -5,6 +5,7 @@ on:
     inputs:
       environment:
         description: this is the env where the workflow run
+        default: 'dev'
         required: true
         type: choice
         options:
@@ -36,6 +37,7 @@ jobs:
         run: echo "Testing container"
 
   deploy:
+    if: inputs.environment == 'dev'
     runs-on: ubuntu-latest
     needs: test
     steps:
